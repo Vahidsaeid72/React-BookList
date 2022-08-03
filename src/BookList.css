@@ -1,0 +1,21 @@
+.my{
+    display: flex;
+    align-items: center;
+    justify-content:space-around
+}
+.myform{
+    background-color: rgb(190, 187, 187);
+    width: 35%;
+}
+.mylist{
+    background-color: rgb(190, 187, 187);
+    width: 40%;
+}
+.mybtn{
+    width:90%;
+    margin: 20px 20px;
+    
+}
+.mytrash{
+    cursor: pointer;
+}
