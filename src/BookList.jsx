@@ -2,9 +2,20 @@ import './BookList.css'
 import { FaTrashAlt } from "react-icons/fa";
 import BookForm from './BookForm';
 import BookTable from './BookTable';
+import { useState } from 'react';
 
 
 const BookList = () => {
+
+  const [myList , setMyList]=useState([
+    {
+      id : 1 , title : 'هوش مصنوعی', author: 'وحید سعید'
+    },    {
+      id : 2 , title : 'پیرمرد و دریا', author: 'جاناتان هیات'
+    },    {
+      id : 3 , title : 'اثر مرکب', author: 'دارن هاردی'
+    },
+  ]);
 
     return ( 
     <div>
@@ -16,8 +27,8 @@ const BookList = () => {
         </header>
   
         <div className="mycontent w-100 d-flex align-items-center justify-content-around mt-5">
-            <BookForm/>
-            <BookTable/>
+            <BookForm myList={myList} setMyList={setMyList}/>
+            <BookTable myList={myList} setMyList={setMyList}/>
         </div>
       </div>
      </div> 
