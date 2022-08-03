@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './BookList.css'
 
-const BookForm = ({myList,setMyList}) => {
+const BookForm = ({Books,setBooks}) => {
 
     const [data,setData]= useState({
         id : '' ,
@@ -12,13 +12,13 @@ const BookForm = ({myList,setMyList}) => {
 
 const handleSubmit = (e)=>{
     e.preventDefault();
-    setMyList([...myList,data])
+    setBooks([...Books,data])
     setData({        
     id : '' ,
     title : '',
     author: ''
 })
-    
+
 }
 
     return ( 

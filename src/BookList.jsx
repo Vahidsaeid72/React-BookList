@@ -2,23 +2,29 @@ import './BookList.css'
 import { FaTrashAlt } from "react-icons/fa";
 import BookForm from './BookForm';
 import BookTable from './BookTable';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+
+
+const getDataFromLS =()=>{
+  const data = localStorage.getItem('Books');
+  if(data){
+    return JSON.parse(data);
+  }else{
+    return [];
+  }
+}
 
 const BookList = () => {
 
-  const [myList , setMyList]=useState([
-    {
-      id : 1 , title : 'هوش مصنوعی', author: 'وحید سعید'
-    },    {
-      id : 2 , title : 'پیرمرد و دریا', author: 'جاناتان هیات'
-    },    {
-      id : 3 , title : 'اثر مرکب', author: 'دارن هاردی'
-    },
-  ]);
+  const [Books , setBooks]=useState(getDataFromLS());
+
+useEffect(()=>{
+    localStorage.setItem('Books',JSON.stringify(Books) );
+},[Books])
 
     return ( 
-    <div>
+    <div className="mybody">
       <div className="container">
   
         <header className="w-100 text-center pt-5 mt-1">
@@ -26,9 +32,9 @@ const BookList = () => {
           <p className="fw-bold fs-6">کتاب های جدید خود را به کتاب خانه اضافه کنید</p>
         </header>
   
-        <div className="mycontent w-100 d-flex align-items-center justify-content-around mt-5">
-            <BookForm myList={myList} setMyList={setMyList}/>
-            <BookTable myList={myList} setMyList={setMyList}/>
+        <div className="mycontent w-100 d-lg-flex align-items-start justify-content-lg-around mt-5 mx-auto">
+            <BookForm Books={Books} setBooks={setBooks}/>
+            <BookTable Books={Books} setBooks={setBooks}/>
         </div>
       </div>
      </div> 

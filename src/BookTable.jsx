@@ -1,23 +1,23 @@
 import './BookList.css'
 import { FaTrashAlt } from "react-icons/fa";
 
-const BookTable = ({myList,setMyList}) => {
+const BookTable = ({Books,setBooks}) => {
 
 
     const handleDelet= (id)=>{
-        const newList = myList.filter(i => i.id !== id);
-        setMyList(newList);
+        const newList = Books.filter(i => i.id !== id);
+        setBooks(newList);
     }
 
    const handleAllDelete =()=>{
-     setMyList([])
+    setBooks([])
    } 
 
 
-if(myList.length !== 0){
+if(Books.length !== 0){
     return ( 
         <>
-        <div className="mylist bg-muted">
+        <div className="mylist">
           <table className="table ">
                     <thead>
                         <tr className="text-center">
@@ -28,12 +28,12 @@ if(myList.length !== 0){
                         </tr>
                     </thead>
                     <tbody className="text-center">
-                        {myList.map((item) =>(
-                             <tr key={item.id} className="">
-                                 <th className="">{item.id}</th>
-                                 <td className="">{item.title}</td>
-                                 <td className="">{item.author}</td>
-                                 <td onClick={()=>handleDelet(item.id)}><FaTrashAlt className="text-danger mytrash"/></td>
+                        {Books.map((book) =>(
+                             <tr key={book.id} className="">
+                                 <th className="">{book.id}</th>
+                                 <td className="">{book.title}</td>
+                                 <td className="">{book.author}</td>
+                                 <td onClick={()=>handleDelet(book.id)}><FaTrashAlt className="text-danger mytrash"/></td>
                              </tr>
                         ))}
                     </tbody>
@@ -44,22 +44,11 @@ if(myList.length !== 0){
      ) 
 }else{
     return (
-        <div className="mylist bg-muted">
-        <table className="table m-0">
-                  <thead>
-                      <tr >
-                      <th className="text-center">شماره</th>
-                      <th className="text-center">عنوان</th>
-                      <th className="text-center">نویسنده</th>
-                      <th className="text-center">حذف</th>
-                      </tr>
-                  </thead>
-        </table>
-                  <div className=" w-100 text-center p-5 ">
-                  <h5 className=" w-100 text-center ">هیچ کتابی در لیست موجود نمی باشد</h5>
-                  </div>
-
-      </div>
+        <div className="mylist ">
+             <div className=" w-100 text-center p-5 ">
+                  <h6 className=" w-100 text-center ">هیچ کتابی در لیست موجود نمی باشد</h6>
+             </div>
+        </div>
     )
 }
    
