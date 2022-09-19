@@ -1,0 +1,48 @@
+body{
+background: rgb(196, 235, 240) !important;
+}
+
+.myform{
+    background-color: rgb(142, 247, 177);
+    width: 35%;
+}
+.mylist{
+    background-color:rgb(142, 247, 177);
+    width: 40%;
+}
+.mybtn{
+    width:90%;
+    margin: 20px 20px;
+    
+}
+.mytrash{
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 995px){
+
+    .myform{
+        width: 80%;
+        margin: auto;
+    }
+    .mylist{
+        width: 80%;
+        margin: auto;
+    }
+
+
+}
+@media only screen and (max-width: 463px){
+
+    .myform{
+        width: 100%;
+        margin: auto;
+    }
+    .mylist{
+        width: 100%;
+        margin: auto;
+    }
+
+
+}
+    
